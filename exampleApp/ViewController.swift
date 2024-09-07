@@ -8,9 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    private let name = "Oleg"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Меня зовут \(name), я создал свое первое приложение")
     }
 }
 
