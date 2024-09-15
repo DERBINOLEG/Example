@@ -8,12 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let person = Person()
+    
+    private let helper = Helper()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        print(person.fullName)
+        updateNumbers()
+    }
+    
+    private func updateNumbers() {
+        helper.addNumber(Int.random(in: 1...10))
+        
+        helper.getNumbers().forEach { print($0) }
     }
 }
