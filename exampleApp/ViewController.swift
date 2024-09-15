@@ -8,15 +8,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    private let name = "Oleg"
-    private let surName = "Derbin"
-    private var fullName: String {
-        return "\(name) \(surName)"
-    }
 
+    let person = Person()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print(fullName)
+        print(person.fullName)
     }
 }
