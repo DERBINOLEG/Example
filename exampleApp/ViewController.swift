@@ -13,12 +13,34 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateNumbers()
+        addAndPrintUsers()
     }
     
-    private func updateNumbers() {
-        helper.addNumber(Int.random(in: 1...10))
+    
+    
+    private func addAndPrintUsers() {
+        helper.addUser(
+            User(
+                login: "DERBIN",
+                password: "77777777",
+                userInfo: .init(
+                    name: "Oleg",
+                    surName: "Derbin"
+                )
+            )
+        )
         
-        helper.getNumbers().forEach { print($0) }
+        helper.addUser(
+            .init(
+                login: "MAX",
+                password: "123141",
+                userInfo: .init(
+                    name: "Maxim",
+                    surName: "Batiushev"
+                )
+            )
+        )
+        
+        helper.getUsers().forEach { print($0.userInfo.fullName) }
     }
 }

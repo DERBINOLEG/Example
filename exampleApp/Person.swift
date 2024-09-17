@@ -7,12 +7,14 @@
 
 import Foundation
 
-class Person {
+struct Person {
     
-    let name = "Oleg"
-    let surName = "Derbin"
+    let name: String
+    let surName: String
     var fullName: String {
-        return "\(name) \(surName)"
+        "\(name) \(surName)"
     }
     
 }
+
+

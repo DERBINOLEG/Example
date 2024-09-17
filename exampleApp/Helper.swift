@@ -8,13 +8,14 @@
 import Foundation
 
 class Helper {
-    private var numbers: [Int] = []
+
+    private var users: [User] = []
     
-    func addNumber(_ number: Int) {
-        numbers.append(number)
+    func addUser(_ user: User) {
+        users.append(user)
     }
     
-    func getNumbers() -> [Int] {
-        numbers
+    func getUsers() -> [User] {
+        users
     }
 }
