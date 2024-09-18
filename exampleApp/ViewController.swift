@@ -10,37 +10,20 @@ import UIKit
 class ViewController: UIViewController {
     
     private let helper = Helper()
+    private let repository = UserRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .red
+        view.alpha = 0.1
         addAndPrintUsers()
     }
     
     
     
     private func addAndPrintUsers() {
-        helper.addUser(
-            User(
-                login: "DERBIN",
-                password: "77777777",
-                userInfo: .init(
-                    name: "Oleg",
-                    surName: "Derbin"
-                )
-            )
-        )
-        
-        helper.addUser(
-            .init(
-                login: "MAX",
-                password: "123141",
-                userInfo: .init(
-                    name: "Maxim",
-                    surName: "Batiushev"
-                )
-            )
-        )
-        
-        helper.getUsers().forEach { print($0.userInfo.fullName) }
+        helper.getUsersData(usersData: repository)
+        helper.users.forEach { print($0.userInfo.fullName) }
     }
 }
+

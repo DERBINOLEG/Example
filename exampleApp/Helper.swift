@@ -9,7 +9,7 @@ import Foundation
 
 class Helper {
 
-    private var users: [User] = []
+    var users: [User] = []
     
     func addUser(_ user: User) {
         users.append(user)
@@ -17,5 +17,9 @@ class Helper {
     
     func getUsers() -> [User] {
         users
+    }
+    
+    func getUsersData(usersData: UserRepository) {
+        usersData.getData().forEach { users.append($0) }
     }
 }
