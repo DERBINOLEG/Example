@@ -12,12 +12,8 @@ class ViewController: UIViewController {
     private let helper = Helper()
     private let repository = UserRepository()
     private let textLabel = UILabel()
-    private let myButton: UIButton = {
-        $0.setTitle("Show FullName", for: .normal)
-        $0.backgroundColor = .green
-        $0.frame = CGRect(x: 100, y: 150, width: 150, height: 50)
-        return $0
-    }(UIButton())
+    private let myButton = UIButton()
+    private let stackView = UIStackView()
     
     
     override func viewDidLoad() {
@@ -25,9 +21,14 @@ class ViewController: UIViewController {
         view.backgroundColor = .red.withAlphaComponent(0.3)
         addAndPrintUsers()
         
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(myButton)
+        setupConstraints()
+        setupStackView()
         setupLabel()
-        view.addSubview(textLabel)
-        view.addSubview(myButton)
+        setupButton()
+        
     }
     
     
@@ -42,7 +43,34 @@ class ViewController: UIViewController {
         textLabel.font = .systemFont(ofSize: 25)
         textLabel.textColor = .blue
         textLabel.text = randomUserName
-        textLabel.frame = CGRect(x: 100, y: 100, width: 100, height: 50)
+        textLabel.numberOfLines = 0
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.textAlignment = .center
+    }
+    
+    private func setupButton() {
+        myButton.setTitle("Show FullName", for: .normal)
+        myButton.backgroundColor = .green
+        myButton.setTitleColor(.black, for: .normal)
+        myButton.layer.cornerRadius = 15
+    }
+    
+    private func setupStackView() {
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+    }
+    
+    private func setupConstraints() {
+        let size = view.widthAnchor
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.heightAnchor.constraint(equalTo: size, multiplier: 0.5),
+            stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor)
+        ])
     }
     
 }
