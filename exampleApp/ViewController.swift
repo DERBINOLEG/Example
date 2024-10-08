@@ -12,7 +12,16 @@ class ViewController: UIViewController {
     private let helper = Helper()
     private let repository = UserRepository()
     private let textLabel = UILabel()
-    private let myButton = UIButton()
+    private let firstButton = CustomButton(
+        title: "Show New User",
+        color: .red,
+        isShadow: false
+    )
+    private let secondButton = CustomButton(
+        title: "Hide User",
+        color: .green,
+        isShadow: true
+    )
     private let stackView = UIStackView()
     
     
@@ -23,11 +32,11 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         stackView.addArrangedSubview(textLabel)
-        stackView.addArrangedSubview(myButton)
+        stackView.addArrangedSubview(firstButton)
+        stackView.addArrangedSubview(secondButton)
         setupConstraints()
         setupStackView()
         setupLabel()
-        setupButton()
         
     }
     
@@ -48,17 +57,11 @@ class ViewController: UIViewController {
         textLabel.textAlignment = .center
     }
     
-    private func setupButton() {
-        myButton.setTitle("Show FullName", for: .normal)
-        myButton.backgroundColor = .green
-        myButton.setTitleColor(.black, for: .normal)
-        myButton.layer.cornerRadius = 15
-    }
-    
     private func setupStackView() {
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         stackView.alignment = .fill
+        stackView.spacing = 10
     }
     
     private func setupConstraints() {
