@@ -30,14 +30,11 @@ class ViewController: UIViewController {
         view.backgroundColor = .red.withAlphaComponent(0.3)
         addAndPrintUsers()
         
-        view.addSubview(stackView)
-        stackView.addArrangedSubview(textLabel)
-        stackView.addArrangedSubview(firstButton)
-        stackView.addArrangedSubview(secondButton)
+        view.addSequenceSubviews(stackView)
+        stackView.addSequenceSubview(textLabel, firstButton, secondButton)
         setupConstraints()
         setupStackView()
         setupLabel()
-        
     }
     
     
@@ -47,7 +44,12 @@ class ViewController: UIViewController {
         helper.getUsers().forEach { print($0.userInfo.fullName) }
     }
     
-    private func setupLabel() {
+}
+
+//MARK: - Setup View
+private extension ViewController {
+    
+    func setupLabel() {
         let randomUserName = helper.getUsers().randomElement()?.userInfo.fullName ?? ""
         textLabel.font = .systemFont(ofSize: 25)
         textLabel.textColor = .blue
@@ -57,12 +59,16 @@ class ViewController: UIViewController {
         textLabel.textAlignment = .center
     }
     
-    private func setupStackView() {
+    func setupStackView() {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
         stackView.spacing = 10
     }
+}
+
+//MARK: -Setup Layout
+extension ViewController {
     
     private func setupConstraints() {
         let size = view.widthAnchor
@@ -75,7 +81,6 @@ class ViewController: UIViewController {
             stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor)
         ])
     }
-    
 }
 
 #Preview {

@@ -19,6 +19,11 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+//MARK: - Setup Button
+extension CustomButton {
+    
     private func setupButton(_ title: String, _ color: UIColor, _ isShadow: Bool) {
         setTitle(title, for: .normal)
         backgroundColor = color
@@ -30,5 +35,17 @@ class CustomButton: UIButton {
             layer.shadowOffset = CGSize(width: 5, height: 5)
         }
     }
+    
+}
+
+//MARK: - Setup Layout
+extension CustomButton {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 15)
+        layer.shadowPath = shadowPath.cgPath
+    }
+    
 }
 
