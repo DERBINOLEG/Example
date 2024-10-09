@@ -12,6 +12,8 @@
 		DD4FAEAC2C8C26BB005FA6A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4FAEAB2C8C26BB005FA6A0 /* ViewController.swift */; };
 		DD4FAEB12C8C26BD005FA6A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD4FAEB02C8C26BD005FA6A0 /* Assets.xcassets */; };
 		DD4FAEB42C8C26BD005FA6A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD4FAEB22C8C26BD005FA6A0 /* LaunchScreen.storyboard */; };
+		DD83E5602CB68E91003CCDA4 /* UIStackView+AddViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83E55F2CB68E91003CCDA4 /* UIStackView+AddViews.swift */; };
+		DD83E5622CB6913F003CCDA4 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83E5612CB6913F003CCDA4 /* UIView+AddSubviews.swift */; };
 		DD9C6E652C9B2AEB00228618 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9C6E642C9B2AEB00228618 /* UserRepository.swift */; };
 		DDB10ED22C97839A00BBB76D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB10ED12C97839A00BBB76D /* Helper.swift */; };
 		DDB10ED42C97872F00BBB76D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB10ED32C97872F00BBB76D /* Person.swift */; };
@@ -27,6 +29,8 @@
 		DD4FAEB02C8C26BD005FA6A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD4FAEB32C8C26BD005FA6A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD4FAEB52C8C26BD005FA6A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD83E55F2CB68E91003CCDA4 /* UIStackView+AddViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+AddViews.swift"; sourceTree = "<group>"; };
+		DD83E5612CB6913F003CCDA4 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
 		DD9C6E642C9B2AEB00228618 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		DDB10ED12C97839A00BBB76D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		DDB10ED32C97872F00BBB76D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -66,17 +70,59 @@
 			children = (
 				DD4FAEA72C8C26BB005FA6A0 /* AppDelegate.swift */,
 				DD4FAEA92C8C26BB005FA6A0 /* SceneDelegate.swift */,
-				DD4FAEAB2C8C26BB005FA6A0 /* ViewController.swift */,
-				DDF330452CB5AA2000A01EA1 /* CustomButton.swift */,
-				DDB10ED12C97839A00BBB76D /* Helper.swift */,
-				DDB10ED32C97872F00BBB76D /* Person.swift */,
-				DD9C6E642C9B2AEB00228618 /* UserRepository.swift */,
-				DDD835302C993F36000771DF /* User.swift */,
-				DD4FAEB02C8C26BD005FA6A0 /* Assets.xcassets */,
-				DD4FAEB22C8C26BD005FA6A0 /* LaunchScreen.storyboard */,
+				DD83E5632CB69358003CCDA4 /* Controllers */,
+				DD83E5642CB69364003CCDA4 /* CustomElements */,
+				DD83E5652CB69372003CCDA4 /* Extensions */,
+				DD83E5662CB693A3003CCDA4 /* Services */,
+				DD83E5672CB693BA003CCDA4 /* Resources */,
 				DD4FAEB52C8C26BD005FA6A0 /* Info.plist */,
 			);
 			path = exampleApp;
+			sourceTree = "<group>";
+		};
+		DD83E5632CB69358003CCDA4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DD4FAEAB2C8C26BB005FA6A0 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DD83E5642CB69364003CCDA4 /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				DDF330452CB5AA2000A01EA1 /* CustomButton.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		DD83E5652CB69372003CCDA4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD83E5612CB6913F003CCDA4 /* UIView+AddSubviews.swift */,
+				DD83E55F2CB68E91003CCDA4 /* UIStackView+AddViews.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD83E5662CB693A3003CCDA4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD9C6E642C9B2AEB00228618 /* UserRepository.swift */,
+				DDD835302C993F36000771DF /* User.swift */,
+				DDB10ED32C97872F00BBB76D /* Person.swift */,
+				DDB10ED12C97839A00BBB76D /* Helper.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DD83E5672CB693BA003CCDA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD4FAEB22C8C26BD005FA6A0 /* LaunchScreen.storyboard */,
+				DD4FAEB02C8C26BD005FA6A0 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +201,9 @@
 				DD9C6E652C9B2AEB00228618 /* UserRepository.swift in Sources */,
 				DDF330462CB5AA2000A01EA1 /* CustomButton.swift in Sources */,
 				DD4FAEA82C8C26BB005FA6A0 /* AppDelegate.swift in Sources */,
+				DD83E5622CB6913F003CCDA4 /* UIView+AddSubviews.swift in Sources */,
 				DD4FAEAA2C8C26BB005FA6A0 /* SceneDelegate.swift in Sources */,
+				DD83E5602CB68E91003CCDA4 /* UIStackView+AddViews.swift in Sources */,
 				DDB10ED22C97839A00BBB76D /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
