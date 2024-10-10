@@ -30,6 +30,9 @@ extension CustomButton {
         setTitleColor(.black, for: .normal)
         layer.cornerRadius = 15
         
+        heightAnchor.constraint(equalToConstant: 50).isActive = true
+        widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
         if isShadow {
             layer.shadowOpacity = 0.7
             layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -45,6 +48,7 @@ extension CustomButton {
         super.layoutSubviews()
         let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 15)
         layer.shadowPath = shadowPath.cgPath
+        
     }
     
 }

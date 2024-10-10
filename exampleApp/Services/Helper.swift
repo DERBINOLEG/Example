@@ -19,7 +19,7 @@ class Helper {
         users
     }
     
-    func getUsersData(usersData: UserRepository) {
-        usersData.getData().forEach { users.append($0) }
+    func getUsersData(usersData: [User]) {
+        usersData.forEach { users.append($0) }
     }
 }

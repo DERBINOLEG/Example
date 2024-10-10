@@ -35,19 +35,37 @@ class ViewController: UIViewController {
         setupConstraints()
         setupStackView()
         setupLabel()
+        addAction()
     }
     
     
     
     private func addAndPrintUsers() {
-        helper.getUsersData(usersData: repository)
+        helper.getUsersData(usersData: repository.getData())
         helper.getUsers().forEach { print($0.userInfo.fullName) }
+    }
+    
+    @objc
+    func firstButtonTapped() {
+        textLabel.text = helper.getUsers().randomElement()?.userInfo.name ?? ""
     }
     
 }
 
 //MARK: - Setup View
 private extension ViewController {
+    
+    func addAction() {
+        firstButton.addTarget(
+            self,
+            action: #selector(firstButtonTapped),
+            for: .touchUpInside
+        )
+        
+        secondButton.addAction(UIAction { _ in
+            self.textLabel.text = ""
+        }, for: .touchUpInside)
+    }
     
     func setupLabel() {
         let randomUserName = helper.getUsers().randomElement()?.userInfo.fullName ?? ""
@@ -63,7 +81,7 @@ private extension ViewController {
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
-        stackView.spacing = 10
+        stackView.spacing = 20
     }
 }
 
@@ -71,14 +89,11 @@ private extension ViewController {
 extension ViewController {
     
     private func setupConstraints() {
-        let size = view.widthAnchor
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            stackView.heightAnchor.constraint(equalTo: size, multiplier: 0.5),
-            stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor)
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 }
