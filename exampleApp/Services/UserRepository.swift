@@ -7,7 +7,11 @@
 
 import Foundation
 
-class UserRepository {
+protocol RepoManager {
+    func getData() -> [User]
+}
+
+class UserRepository: RepoManager {
     
     func getData() -> [User] {
         [ User.init(
