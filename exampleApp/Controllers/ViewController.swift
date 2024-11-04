@@ -9,8 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let helper = Helper()
-    private let repository = UserRepository()
+    var helper: UserManager?
     private let textLabel = UILabel()
     private let firstButton = CustomButton(
         title: "Show New User",
@@ -41,13 +40,12 @@ class ViewController: UIViewController {
     
     
     private func addAndPrintUsers() {
-        helper.getUsersData(usersData: repository.getData())
-        helper.getUsers().forEach { print($0.userInfo.fullName) }
+        helper?.getUsers().forEach { print($0.userInfo.fullName) }
     }
     
     @objc
     func firstButtonTapped() {
-        textLabel.text = helper.getUsers().randomElement()?.userInfo.name ?? ""
+        textLabel.text = helper?.getUsers().randomElement()?.userInfo.name ?? ""
     }
     
 }
@@ -68,7 +66,7 @@ private extension ViewController {
     }
     
     func setupLabel() {
-        let randomUserName = helper.getUsers().randomElement()?.userInfo.fullName ?? ""
+        let randomUserName = helper?.getUsers().randomElement()?.userInfo.fullName ?? ""
         textLabel.font = .systemFont(ofSize: 25)
         textLabel.textColor = .blue
         textLabel.text = randomUserName

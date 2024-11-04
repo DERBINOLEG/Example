@@ -7,13 +7,15 @@
 
 import Foundation
 
-class Helper {
+protocol UserManager {
+    func getUsers() -> [User]
+    func getUsersData(usersData: [User])
+}
+
+class Helper: UserManager {
 
     private var users: [User] = []
     
-    func addUser(_ user: User) {
-        users.append(user)
-    }
     
     func getUsers() -> [User] {
         users
